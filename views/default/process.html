@@ -1,0 +1,9 @@
+{{extend 'tesslayout.html'}}
+{{if session.content:}}
+<div class="container-fluid">
+        <pre>{{=session.content}}</pre>
+</div>
+{{pass}}
+<button type="button" class="btn btn-default" onclick="window.location.href = '{{=URL('index')}}'">
+    Voltar
+</button>

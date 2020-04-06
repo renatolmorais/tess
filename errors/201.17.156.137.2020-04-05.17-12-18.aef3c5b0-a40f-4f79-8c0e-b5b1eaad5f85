@@ -1,0 +1,217 @@
+(dp1
+S'output'
+p2
+S'Unable to find the file'
+p3
+sS'layer'
+p4
+S'/web/web2py/applications/tess/views/index.html'
+p5
+sS'code'
+p6
+S''
+sS'snapshot'
+p7
+(dp8
+S'exception'
+p9
+(dp10
+S'__getslice__'
+p11
+S"<method-wrapper '__getslice__' of exceptions.IOError object>"
+p12
+sS'__str__'
+p13
+S"<method-wrapper '__str__' of exceptions.IOError object>"
+p14
+sS'__reduce__'
+p15
+S'<built-in method __reduce__ of exceptions.IOError object>'
+p16
+sS'__dict__'
+p17
+S'{}'
+p18
+sS'__sizeof__'
+p19
+S'<built-in method __sizeof__ of exceptions.IOError object>'
+p20
+sS'message'
+p21
+S"''"
+p22
+sS'__init__'
+p23
+S"<method-wrapper '__init__' of exceptions.IOError object>"
+p24
+sS'__setattr__'
+p25
+S"<method-wrapper '__setattr__' of exceptions.IOError object>"
+p26
+sS'__reduce_ex__'
+p27
+S'<built-in method __reduce_ex__ of exceptions.IOError object>'
+p28
+sS'__new__'
+p29
+S'<built-in method __new__ of type object>'
+p30
+sS'errno'
+p31
+S'2'
+sS'__format__'
+p32
+S'<built-in method __format__ of exceptions.IOError object>'
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.IOError'>"
+p35
+sS'filename'
+p36
+S"'/web/web2py/applications/tess/views/index.html'"
+p37
+sS'__doc__'
+p38
+S"'I/O operation failed.'"
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of exceptions.IOError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of exceptions.IOError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of exceptions.IOError object>"
+p45
+sS'args'
+p46
+S"(2, 'No such file or directory')"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of exceptions.IOError object>'
+p51
+sS'strerror'
+p52
+S"'No such file or directory'"
+p53
+sS'__delattr__'
+p54
+S"<method-wrapper '__delattr__' of exceptions.IOError object>"
+p55
+sS'__repr__'
+p56
+S"<method-wrapper '__repr__' of exceptions.IOError object>"
+p57
+sS'__hash__'
+p58
+S"<method-wrapper '__hash__' of exceptions.IOError object>"
+p59
+ssS'evalue'
+p60
+S"[Errno 2] No such file or directory: '/web/web2py/applications/tess/views/index.html'"
+p61
+sS'frames'
+p62
+(lp63
+(dp64
+S'file'
+p65
+S'/web/web2py/gluon/packages/yatl/yatl/template.py'
+p66
+sS'dump'
+p67
+(dp68
+S'fp'
+p69
+S'undefined'
+p70
+sS'builtinopen'
+p71
+S'<built-in function open>'
+p72
+sS'mode'
+p73
+S"'rb'"
+p74
+sS'filename'
+p75
+S"'/web/web2py/applications/tess/views/index.html'"
+p76
+ssS'lnum'
+p77
+I46
+sS'lines'
+p78
+(dp79
+I41
+S"DEFAULT_DELIMITERS = ('{{', '}}')"
+p80
+sI42
+S''
+sI43
+S''
+sI44
+S"def file_reader(filename, mode='rb'):"
+p81
+sI45
+S'    try:'
+p82
+sI46
+S'        with open(filename, mode) as fp:'
+p83
+sI47
+S'            body = fp.read()'
+p84
+sI48
+S'        return body'
+p85
+sI49
+S'    except IOError:'
+p86
+sI50
+S"        raise RestrictedError(filename, '', 'Unable to find the file')"
+p87
+ssS'call'
+p88
+S"(filename='/web/web2py/applications/tess/views/index.html', mode='rb')"
+p89
+sS'func'
+p90
+S'file_reader'
+p91
+sasS'pyver'
+p92
+S'Python 2.7.13: /usr/bin/python (prefix: /usr)'
+p93
+sS'etype'
+p94
+S"<type 'exceptions.IOError'>"
+p95
+sS'date'
+p96
+S'Sun Apr  5 17:12:18 2020'
+p97
+sS'locals'
+p98
+(dp99
+S'mode'
+p100
+S"'rb'"
+p101
+sg36
+S"'/web/web2py/applications/tess/views/index.html'"
+p102
+sssS'traceback'
+p103
+S'Traceback (most recent call last):\n  File "/web/web2py/gluon/packages/yatl/yatl/template.py", line 46, in file_reader\n    with open(filename, mode) as fp:\nIOError: [Errno 2] No such file or directory: \'/web/web2py/applications/tess/views/index.html\'\n'
+p104
+s.
