@@ -8,7 +8,7 @@ import os
 from hashlib import sha256
 from time import sleep
 import json
-from tess import ocr
+from tess import ocr,which
 
 # ---- example index page ----
 def index():
@@ -21,16 +21,17 @@ def index():
         if not os.path.exists( request.folder + '/uploads/' + filename):
             with open(request.folder + '/uploads/' + filename,"wb") as fp:
                 fp.write( content )
-        ret = os.popen2('tesseract "{0}" "{1}" > /dev/null 2>&1'.format(
-                request.folder + "/uploads/" + filename,
-                request.folder + "/static/" + filename
-                )
-        )
-        #content = base64.b64encode(content)#base64.b64encode(open(request.vars.filename,'rb').read())
         content = 'couldn\'t read'
-        while not os.path.exists( request.folder + '/static/' + filename + '.txt' ): sleep(1)
-        with open( request.folder + '/static/' + filename + '.txt' , 'r') as fp: content = fp.read()
-        session.content = content
+        if which('tesseract'):
+            ret = os.popen2('tesseract "{0}" "{1}" > /dev/null 2>&1'.format(
+                    request.folder + "/uploads/" + filename,
+                    request.folder + "/static/" + filename
+                    )
+            )
+            #content = base64.b64encode(content)#base64.b64encode(open(request.vars.filename,'rb').read())
+            while not os.path.exists( request.folder + '/static/' + filename + '.txt' ): sleep(1)
+            with open( request.folder + '/static/' + filename + '.txt' , 'r') as fp: content = fp.read()
+            session.content = content
         redirect(URL('process'))
     return dict()
 
@@ -39,8 +40,24 @@ def process():
 
 def process2():
     #return request.vars.arquivo.file.read()
-    if not request.vars.token or request.vars.token != 'a1b2c3d4$': return json.dumps( dict(status_code=400,message='token not found') )
+    if not request.vars.token or request.vars.token != 'a1b2c3d4$': 
+        return json.dumps(
+            dict(
+                status_code = 400,
+                result = None,
+            )
+        )
     if request.vars.arquivo != None:
+        if not which('tesseract'):
+            return json.dumps(
+                dict(
+                    status_code = 200,
+                    result = dict(
+                        status = 1,
+                        content = 'tesseract not present',
+                    ),
+                )
+            )
         #filename = request.vars.arquivo.filename
         #extension = filename.split('.')[-1]
         #filename = sha256(filename).hexdigest() + '.' + extension
@@ -61,14 +78,17 @@ def process2():
         return json.dumps(
             dict(
                 status_code = 200,
-                content = ret,
+                result = dict(
+                    status = 0,
+                    content = ret,
+                )
             )
         )
     return json.dumps(
         dict(
-            status_code = '400',
-            content = 'nothing',
-            )
+            status_code = 400,
+            result = None,
+        )
     )
 
 # ---- API (example) -----

@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from gluon import *
-
+from os import system as st
 #encoding: UTF-8
 
 import sys,os
 from hashlib import sha256
+
+def which(cmd):
+    ret_code = st('which {0} > /dev/null'.format(cmd))
+    if ret_code == 0: return True
+    else: return False
 
 def ocr(image):
 
